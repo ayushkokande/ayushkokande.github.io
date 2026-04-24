@@ -1,0 +1,113 @@
+---
+layout: default
+title: ""
+---
+
+<!-- HERO -->
+<section class="hero container">
+  <div class="hero-meta">MS CS · NYU COURANT · ML/AI RESEARCH</div>
+
+  <h1 class="hero-title">
+    Research on<br>
+    how language models<br>
+    <span class="serif">actually think.</span>
+  </h1>
+
+  <p class="hero-subtitle">
+    I'm <strong>{{ site.author }}</strong> — a graduate student at NYU Courant working on
+    <strong>mechanistic interpretability</strong>, LLM evaluations, and the gap between what models output and what's happening inside them.
+  </p>
+
+  <div class="hero-links">
+    <a href="#work" class="hero-link">selected work <span class="arrow">↗</span></a>
+    <a href="https://github.com/{{ site.github_username }}" class="hero-link">github <span class="arrow">↗</span></a>
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="hero-link">linkedin <span class="arrow">↗</span></a>
+    <a href="mailto:{{ site.email }}" class="hero-link">email <span class="arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="container reveal">
+  <div class="section-label">01 / Selected Work</div>
+  <h2 class="section-heading">
+    Projects on <span class="serif">interpretability, evaluation,</span> and LLM internals.
+  </h2>
+
+  <div class="projects-grid">
+    {% assign sorted_projects = site.projects | sort: 'order' %}
+    {% for project in sorted_projects %}
+      <a href="{{ project.url | relative_url }}" class="project-card">
+        <div class="project-index">{{ forloop.index | prepend: '00' | slice: -2, 2 }} /</div>
+        <div class="project-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.tagline }}</p>
+          <div class="project-tags">
+            {% for tag in project.tags %}
+              <span class="project-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container reveal">
+  <div class="section-label">02 / About</div>
+  <h2 class="section-heading">
+    Background & <span class="serif">focus.</span>
+  </h2>
+
+  <div class="about-grid">
+    <div class="about-meta">
+      <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); line-height: 2;">
+        Currently<br>
+        <span style="color: var(--text);">MS CS @ NYU Courant</span><br><br>
+        Interested in<br>
+        <span style="color: var(--text);">mech interp, evals,<br>LLM safety</span><br><br>
+        Based in<br>
+        <span style="color: var(--text);">New York, NY</span>
+      </p>
+    </div>
+
+    <div class="about-prose">
+      <p>
+        I'm a Master's student at the <strong>Courant Institute</strong> focused on understanding the internal
+        representations of language models — how circuits form, where reasoning breaks, and what
+        interpretability can tell us about safety.
+      </p>
+      <p>
+        My projects sit at the intersection of <strong>mechanistic interpretability</strong> and
+        <strong>adversarial evaluation</strong>: probing model internals, building benchmarks that stress
+        specific behaviors, and replicating recent interp work to extend it in ways the original authors didn't.
+      </p>
+      <p>
+        Before this, I worked on <em>[your prior work — research, engineering, etc.]</em>.
+        I'm currently looking for <strong>summer 2026 research opportunities</strong> — drop me a line if
+        you're working on something aligned.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="contact-heading">
+      Let's talk about <span class="accent">how models think.</span>
+    </h2>
+
+    <a href="mailto:{{ site.email }}" class="contact-email">
+      <span>✦</span> {{ site.email }}
+    </a>
+
+    <div class="contact-socials">
+      <a href="https://github.com/{{ site.github_username }}" class="link-underline">github ↗</a>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="link-underline">linkedin ↗</a>
+      {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" class="link-underline">twitter ↗</a>{% endif %}
+      {% if site.google_scholar %}<a href="{{ site.google_scholar }}" class="link-underline">scholar ↗</a>{% endif %}
+    </div>
+  </div>
+</section>
