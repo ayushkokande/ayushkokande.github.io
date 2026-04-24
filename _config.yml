@@ -1,29 +1,26 @@
 # Site settings — EDIT THESE
-title: "Your Name"
+title: "Ayush Kokande"
 tagline: "MS CS @ NYU Courant · ML/AI Research"
 description: "Machine learning research, mechanistic interpretability, LLM evaluations."
 author: "Your Name"
-email: "you@nyu.edu"
-url: "https://yourusername.github.io"
+email: "ak13124@nyu.edu"
+url: "https://ayushkokande.github.io"
 
 # Social links
-github_username: "yourusername"
-linkedin_username: "yourusername"
-twitter_username: "yourusername"
-google_scholar: ""  # full URL, optional
+github_username: "ayushkokande"
+linkedin_username: "ayushkokande2000"
+twitter_username: "AKokande"
+google_scholar: ""  
 
-# Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:title/
 
-# Collections
 collections:
   projects:
     output: true
     permalink: /projects/:path/
 
-# Exclude from build
 exclude:
   - README.md
   - Gemfile
