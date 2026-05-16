@@ -1,9 +1,10 @@
 # Site settings — EDIT THESE
 title: "Ayush Kokande"
-tagline: "MS CS @ NYU Courant · ML/AI Research"
-description: "Machine learning research, mechanistic interpretability, LLM evaluations."
-author: "Your Name"
-email: "ak13124@nyu.edu"
+tagline: "MS CS @ NYU Courant · Systems & ML Research"
+description: "Mechanistic interpretability, LLM internals, and high-performance ML systems. MS CS at NYU Courant."
+author: "Ayush Kokande"
+email: "ayushkokande093@gmail.com"
+email_academic: "ak13124@nyu.edu"
 url: "https://ayushkokande.github.io"
 
 # Social links
