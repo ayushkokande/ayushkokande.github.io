@@ -4,45 +4,51 @@ title: ""
 ---
 
 <!-- HERO -->
-<section class="hero container">
-  <div class="hero-meta">
-    <span class="status-dot"></span>
-    MS CS · NYU COURANT · AI CONCENTRATION
+<section class="hero">
+  <div class="container">
+    <div class="hero-meta">MS CS · NYU COURANT · AI CONCENTRATION</div>
+
+    <h1 class="hero-title">
+      <span class="word" style="animation-delay: 200ms">Systems</span>
+      <span class="word" style="animation-delay: 280ms">engineer</span><br>
+      <span class="word" style="animation-delay: 360ms">learning</span>
+      <span class="word" style="animation-delay: 440ms">how</span>
+      <span class="word" style="animation-delay: 520ms">language</span>
+      <span class="word" style="animation-delay: 600ms">models</span><br>
+      <span class="word" style="animation-delay: 700ms"><em>actually&nbsp;think.</em></span>
+    </h1>
+
+    <p class="hero-subtitle">
+      I'm <strong>{{ site.author }}</strong> — two years of backend engineering (44k+ peak IOPS,
+      600GB Postgres → ScyllaDB migrations) now pointed at <strong>mechanistic interpretability</strong>,
+      <strong>LLM internals</strong>, and the GPU kernels that make them tractable.
+    </p>
+
+    <div class="hero-links">
+      <a href="#work" class="magnetic" data-magnetic>selected work <span class="arrow">↗</span></a>
+      <a href="https://github.com/{{ site.github_username }}" class="magnetic" data-magnetic>github <span class="arrow">↗</span></a>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="magnetic" data-magnetic>linkedin <span class="arrow">↗</span></a>
+      <a href="mailto:{{ site.email }}" class="magnetic" data-magnetic>email <span class="arrow">↗</span></a>
+    </div>
   </div>
 
-  <h1 class="hero-title">
-    Systems engineer<br>
-    learning how language models<br>
-    <span class="serif">actually think.</span>
-  </h1>
-
-  <p class="hero-subtitle">
-    I'm <strong>{{ site.author }}</strong> — two years of backend engineering (44k+ peak IOPS,
-    600GB Postgres → ScyllaDB migrations) now pointed at <strong>mechanistic interpretability</strong>,
-    <strong>LLM internals</strong>, and the GPU kernels that make them tractable.
-  </p>
-
-  <div class="hero-links">
-    <a href="#work" class="hero-link">selected work <span class="arrow">↗</span></a>
-    <a href="https://github.com/{{ site.github_username }}" class="hero-link">github <span class="arrow">↗</span></a>
-    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="hero-link">linkedin <span class="arrow">↗</span></a>
-    <a href="mailto:{{ site.email }}" class="hero-link">email <span class="arrow">↗</span></a>
-  </div>
+  <div class="scroll-cue">scroll</div>
 </section>
 
 <!-- WORK -->
-<section id="work" class="container reveal">
-  <div class="section-label">01 / Selected Work</div>
-  <h2 class="section-heading">
-    Projects on <span class="serif">interpretability, architecture,</span> and ML systems.
-  </h2>
+<section id="work" class="reveal">
+  <div class="container">
+    <div class="section-label">01 / Selected Work</div>
+    <h2 class="section-heading">
+      Projects on interpretability, <em>architecture,</em> and ML systems.
+    </h2>
 
-  <div class="projects-grid">
-    {% assign sorted_projects = site.projects | sort: 'order' %}
-    {% for project in sorted_projects %}
-      <a href="{{ project.url | relative_url }}" class="project-card">
-        <div class="project-index">{{ forloop.index | prepend: '00' | slice: -2, 2 }} /</div>
-        <div class="project-content">
+    <div class="projects-grid">
+      {% assign sorted_projects = site.projects | sort: 'order' %}
+      {% for project in sorted_projects %}
+        <a href="{{ project.url | relative_url }}" class="project-card tilt" data-magnetic>
+          <span class="arrow-out">↗</span>
+          <div class="project-index">{{ forloop.index | prepend: '00' | slice: -2, 2 }} / {{ project.date | date: '%Y' }}</div>
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-desc">{{ project.tagline }}</p>
           <div class="project-tags">
@@ -50,112 +56,111 @@ title: ""
               <span class="project-tag">{{ tag }}</span>
             {% endfor %}
           </div>
-        </div>
-        <div class="project-arrow">↗</div>
-      </a>
-    {% endfor %}
+        </a>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="container reveal">
-  <div class="section-label">02 / Experience</div>
-  <h2 class="section-heading">
-    Backend systems at <span class="serif">scale,</span> before the research pivot.
-  </h2>
+<section id="experience" class="reveal">
+  <div class="container">
+    <div class="section-label">02 / Experience</div>
+    <h2 class="section-heading">
+      Backend systems at <em>scale,</em> before the research pivot.
+    </h2>
 
-  <div class="experience-list">
-    <div class="experience-item">
-      <div class="experience-meta">
-        <div class="experience-period">Mar 2025 — Jul 2025</div>
-        <div class="experience-stack">Go · Temporal · PostgreSQL</div>
+    <div class="experience-list">
+      <div class="experience-item">
+        <div>
+          <div class="experience-period">Mar 2025 — Jul 2025</div>
+          <div class="experience-stack">Go · Temporal · PostgreSQL</div>
+        </div>
+        <div>
+          <div class="experience-role">Software Development Engineer</div>
+          <div class="experience-org">FinBox <span class="loc">· Bengaluru</span></div>
+          <ul class="experience-bullets">
+            <li>Built Axis Bank's digital loan orchestration on Temporal — <strong>200K+ monthly applications</strong>, retry policies that cut manual intervention by 40%.</li>
+            <li>Tuned Go concurrency and database locking across services for Muthoot Finance and Tata Digital.</li>
+            <li>Onboarded 3+ engineers via service walkthroughs and pair programming.</li>
+          </ul>
+        </div>
       </div>
-      <div class="experience-body">
-        <div class="experience-role">Software Development Engineer</div>
-        <div class="experience-org">FinBox <span class="experience-loc">· Bengaluru</span></div>
-        <ul class="experience-bullets">
-          <li>Built Axis Bank's digital loan orchestration on Temporal — <strong>200K+ monthly applications</strong>, retry policies that cut manual intervention by 40%.</li>
-          <li>Tuned Go concurrency and database locking across services for Muthoot Finance and Tata Digital.</li>
-          <li>Onboarded 3+ engineers via service walkthroughs and pair programming.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="experience-item">
-      <div class="experience-meta">
-        <div class="experience-period">Jul 2023 — Sep 2024</div>
-        <div class="experience-stack">Kotlin · Spring WebFlux · Kafka · ScyllaDB</div>
+      <div class="experience-item">
+        <div>
+          <div class="experience-period">Jul 2023 — Sep 2024</div>
+          <div class="experience-stack">Kotlin · Spring WebFlux · Kafka · ScyllaDB</div>
+        </div>
+        <div>
+          <div class="experience-role">Software Development Engineer</div>
+          <div class="experience-org">Navi Technologies <span class="loc">· Bengaluru</span></div>
+          <ul class="experience-bullets">
+            <li>Architected a non-blocking Customer Device Service that scaled to <strong>44k+ peak IOPS</strong> on 10× traffic growth.</li>
+            <li>Migrated <strong>600GB+ from PostgreSQL to ScyllaDB</strong> via S3 bulk loading — 60% cost reduction.</li>
+            <li>Redesigned relational schemas into NoSQL single-table designs with dual-write consistency for user mappings.</li>
+            <li>Cut VKYC PAN-match latency from 3–4s to 2s using Levenshtein thresholds.</li>
+          </ul>
+        </div>
       </div>
-      <div class="experience-body">
-        <div class="experience-role">Software Development Engineer</div>
-        <div class="experience-org">Navi Technologies <span class="experience-loc">· Bengaluru</span></div>
-        <ul class="experience-bullets">
-          <li>Architected a non-blocking Customer Device Service that scaled to <strong>44k+ peak IOPS</strong> on 10× traffic growth.</li>
-          <li>Migrated <strong>600GB+ from PostgreSQL to ScyllaDB</strong> via S3 bulk loading — 60% cost reduction.</li>
-          <li>Redesigned relational schemas into NoSQL single-table designs with dual-write consistency for user mappings.</li>
-          <li>Cut VKYC PAN-match latency from 3–4s to 2s using Levenshtein thresholds; deprecated a paid OCR API by gating CKYC upload behind OKYC approval.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="experience-item">
-      <div class="experience-meta">
-        <div class="experience-period">May 2022 — Jul 2022</div>
-        <div class="experience-stack">C++ · GoogleTest</div>
-      </div>
-      <div class="experience-body">
-        <div class="experience-role">SDE Intern</div>
-        <div class="experience-org">Samsung Research <span class="experience-loc">· Bengaluru</span></div>
-        <ul class="experience-bullets">
-          <li>Raised ISM module unit-test coverage from 57% to 80% using targeted GoogleTest strategies.</li>
-        </ul>
+      <div class="experience-item">
+        <div>
+          <div class="experience-period">May 2022 — Jul 2022</div>
+          <div class="experience-stack">C++ · GoogleTest</div>
+        </div>
+        <div>
+          <div class="experience-role">SDE Intern</div>
+          <div class="experience-org">Samsung Research <span class="loc">· Bengaluru</span></div>
+          <ul class="experience-bullets">
+            <li>Raised ISM module unit-test coverage from 57% to 80% using targeted GoogleTest strategies.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="container reveal">
-  <div class="section-label">03 / About</div>
-  <h2 class="section-heading">
-    Background & <span class="serif">focus.</span>
-  </h2>
+<section id="about" class="reveal">
+  <div class="container">
+    <div class="section-label">03 / About</div>
+    <h2 class="section-heading">
+      Background &amp; <em>focus.</em>
+    </h2>
 
-  <div class="about-grid">
-    <div class="about-meta">
-      <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); line-height: 2;">
-        Currently<br>
-        <span style="color: var(--text);">MS CS @ NYU Courant<br>(AI Concentration)</span><br><br>
-        Previously<br>
-        <span style="color: var(--text);">SDE @ FinBox, Navi<br>B.Tech @ NSUT Delhi</span><br><br>
-        Interested in<br>
-        <span style="color: var(--text);">mech interp, GPU kernels,<br>LLM safety</span><br><br>
-        Based in<br>
-        <span style="color: var(--text);">New York, NY</span>
-      </p>
-    </div>
+    <div class="about-grid">
+      <div class="about-meta">
+        Currently
+        <b>MS CS @ NYU Courant<br>(AI Concentration)</b>
+        Previously
+        <b>SDE @ FinBox, Navi<br>B.Tech @ NSUT Delhi</b>
+        Interested in
+        <b>mech interp, GPU kernels,<br>LLM safety</b>
+        Based in
+        <b>New York, NY</b>
+      </div>
 
-    <div class="about-prose">
-      <p>
-        I'm a Master's student at the <strong>Courant Institute</strong> (AI concentration), working
-        on the internals of language models — how circuits form, where reasoning breaks, and what
-        interpretability can tell us about alignment.
-      </p>
-      <p>
-        Before NYU I spent two years building production backend systems: a non-blocking Kotlin
-        service at <strong>Navi</strong> that handled 44k+ IOPS during 10× traffic growth, and Temporal
-        workflows at <strong>FinBox</strong> orchestrating 200K+ monthly bank loan applications. That
-        background pulls my ML work toward the <strong>systems side</strong> — writing Triton kernels,
-        thinking about memory hierarchies, and treating training infrastructure as a first-class
-        research artifact rather than a black box.
-      </p>
-      <p>
-        Current projects sit at the intersection of <strong>mechanistic interpretability</strong> and
-        <strong>high-performance ML</strong>: tracing circuit-level failure modes in safety-tuned
-        models, building transformers from first principles, and squeezing 18× speedups out of attention.
-        Looking for <strong>summer 2026 research opportunities</strong> in interp, safety, or ML
-        systems — get in touch.
-      </p>
+      <div class="about-prose">
+        <p>
+          I'm a Master's student at the <strong>Courant Institute</strong> (AI concentration), working
+          on the internals of language models — how circuits form, where reasoning breaks, and what
+          interpretability can tell us about alignment.
+        </p>
+        <p>
+          Before NYU I spent two years building production backend systems: a non-blocking Kotlin
+          service at <strong>Navi</strong> that handled 44k+ IOPS during 10× traffic growth, and Temporal
+          workflows at <strong>FinBox</strong> orchestrating 200K+ monthly bank loan applications. That
+          background pulls my ML work toward the <strong>systems side</strong> — writing Triton kernels,
+          thinking about memory hierarchies, and treating training infrastructure as a first-class
+          research artifact rather than a black box.
+        </p>
+        <p>
+          Current projects sit at the intersection of <strong>mechanistic interpretability</strong> and
+          <strong>high-performance ML</strong>. Looking for <strong>summer 2026 research opportunities</strong>
+          in interp, safety, or ML systems — get in touch.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -164,18 +169,17 @@ title: ""
 <section id="contact" class="contact">
   <div class="container">
     <h2 class="contact-heading">
-      Let's talk about <span class="accent">how models think.</span>
+      Let's talk about <em>how models think.</em>
     </h2>
 
-    <a href="mailto:{{ site.email }}" class="contact-email">
+    <a href="mailto:{{ site.email }}" class="contact-email" data-magnetic>
       <span>✦</span> {{ site.email }}
     </a>
 
     <div class="contact-socials">
-      <a href="https://github.com/{{ site.github_username }}" class="link-underline">github ↗</a>
-      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="link-underline">linkedin ↗</a>
-      {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" class="link-underline">twitter ↗</a>{% endif %}
-      {% if site.google_scholar %}<a href="{{ site.google_scholar }}" class="link-underline">scholar ↗</a>{% endif %}
+      <a href="https://github.com/{{ site.github_username }}" data-magnetic>github ↗</a>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" data-magnetic>linkedin ↗</a>
+      {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" data-magnetic>twitter ↗</a>{% endif %}
     </div>
   </div>
 </section>
