@@ -11,16 +11,16 @@ const Sky = (function () {
   // The sky is intentionally more saturated than the bg so the
   // atmosphere visibly shifts through the day while text stays readable.
   const KEYS = [
-    { h:  0,   accent: [100,  80, 180], rest: [80,  76, 100], sky: [180, 170, 230], bg: [248, 246, 252], phase: 'night'      },
-    { h:  5,   accent: [130,  80, 170], rest: [90,  76, 100], sky: [200, 170, 230], bg: [250, 246, 252], phase: 'pre-dawn'   },
-    { h:  7,   accent: [200, 100,  60], rest: [100,  80,  70], sky: [255, 200, 170], bg: [255, 250, 246], phase: 'dawn'       },
-    { h: 10,   accent: [ 20, 160, 140], rest: [70,  90,  88], sky: [170, 220, 240], bg: [245, 250, 252], phase: 'morning'    },
-    { h: 13,   accent: [ 30, 130, 190], rest: [70,  85, 100], sky: [170, 210, 255], bg: [243, 249, 255], phase: 'midday'     },
-    { h: 16,   accent: [180, 130,  20], rest: [90,  80,  50], sky: [255, 220, 140], bg: [255, 252, 242], phase: 'afternoon'  },
-    { h: 18.5, accent: [200,  80,  50], rest: [100,  70,  60], sky: [255, 180, 150], bg: [255, 250, 246], phase: 'sunset'     },
-    { h: 20,   accent: [170,  60, 130], rest: [90,  65,  85], sky: [230, 160, 210], bg: [252, 246, 252], phase: 'dusk'       },
-    { h: 22,   accent: [110,  70, 180], rest: [80,  72, 100], sky: [200, 180, 240], bg: [248, 246, 255], phase: 'twilight'   },
-    { h: 24,   accent: [100,  80, 180], rest: [80,  76, 100], sky: [180, 170, 230], bg: [248, 246, 252], phase: 'night'      },
+    { h:  0,   accent: [150, 112, 158], rest: [104,  98,  92], sky: [228, 224, 232], bg: [246, 245, 248], phase: 'night'      },
+    { h:  5,   accent: [168, 110, 142], rest: [106,  96,  90], sky: [236, 224, 228], bg: [248, 246, 246], phase: 'pre-dawn'   },
+    { h:  7,   accent: [196, 104,  74], rest: [110,  94,  82], sky: [248, 230, 214], bg: [251, 248, 242], phase: 'dawn'       },
+    { h: 10,   accent: [178,  96,  68], rest: [104,  96,  86], sky: [233, 234, 230], bg: [248, 247, 242], phase: 'morning'    },
+    { h: 13,   accent: [188, 108,  70], rest: [100,  96,  88], sky: [228, 232, 236], bg: [247, 246, 242], phase: 'midday'     },
+    { h: 16,   accent: [184, 122,  58], rest: [106,  96,  78], sky: [242, 232, 212], bg: [250, 248, 241], phase: 'afternoon'  },
+    { h: 18.5, accent: [198,  92,  62], rest: [110,  92,  80], sky: [248, 226, 208], bg: [251, 247, 240], phase: 'sunset'     },
+    { h: 20,   accent: [186,  92, 112], rest: [104,  92,  92], sky: [240, 224, 228], bg: [249, 246, 246], phase: 'dusk'       },
+    { h: 22,   accent: [158, 110, 158], rest: [102,  94,  96], sky: [232, 226, 236], bg: [247, 245, 249], phase: 'twilight'   },
+    { h: 24,   accent: [150, 112, 158], rest: [104,  98,  92], sky: [228, 224, 232], bg: [246, 245, 248], phase: 'night'      },
   ];
 
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -255,8 +255,8 @@ const Sky = (function () {
     // Draw edges first (under nodes)
     ctx.lineWidth = 1 * DPR;
     const pal = window.__palette || {
-      activeRGB: [20, 160, 140],
-      restRGB: [80, 76, 70]
+      activeRGB: [193, 95, 60],
+      restRGB: [104, 98, 90]
     };
     const aR = pal.activeRGB[0], aG = pal.activeRGB[1], aB = pal.activeRGB[2];
     const rR = pal.restRGB[0], rG = pal.restRGB[1], rB = pal.restRGB[2];

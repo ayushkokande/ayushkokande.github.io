@@ -6,9 +6,9 @@
    Registering colors as @property types so the browser interpolates
    between palette updates rather than snapping.
    ==================================================================== */
-@property --sky    { syntax: '<color>'; inherits: true; initial-value: #c8d8f0; }
-@property --bg     { syntax: '<color>'; inherits: true; initial-value: #faf8f5; }
-@property --accent { syntax: '<color>'; inherits: true; initial-value: #0a9e8c; }
+@property --sky    { syntax: '<color>'; inherits: true; initial-value: #ece6da; }
+@property --bg     { syntax: '<color>'; inherits: true; initial-value: #f5f4ee; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #c15f3c; }
 
 /* ====================================================================
    ROOT TOKENS
@@ -20,16 +20,16 @@
 }
 
 :root {
-  --bg-2: #f0ede6;
-  --bg-3: #e8e4da;
-  --fg: #1c1814;
-  --fg-dim: #6e6860;
-  --fg-faint: #b5ada0;
-  --line: rgba(28, 24, 20, 0.10);
-  --line-strong: rgba(28, 24, 20, 0.22);
-  --accent: #0a9e8c;
-  --accent-soft: rgba(10, 158, 140, 0.12);
-  --accent-glow: rgba(10, 158, 140, 0.30);
+  --bg-2: #efece2;
+  --bg-3: #e7e3d6;
+  --fg: #28251f;
+  --fg-dim: #6b665b;
+  --fg-faint: #ada594;
+  --line: rgba(40, 36, 28, 0.10);
+  --line-strong: rgba(40, 36, 28, 0.20);
+  --accent: #c15f3c;
+  --accent-soft: rgba(193, 95, 60, 0.12);
+  --accent-glow: rgba(193, 95, 60, 0.28);
   --warm: #b56a1e;
 
   --font-display: 'Fraunces', 'Times New Roman', serif;
@@ -157,7 +157,7 @@ section { padding: clamp(5rem, 12vh, 9rem) 0; }
   right: 0;
   z-index: 50;
   padding: 1.4rem 0;
-  background: linear-gradient(180deg, rgba(250, 248, 245, 0.88), transparent);
+  background: linear-gradient(180deg, rgba(245, 244, 238, 0.88), transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -713,7 +713,7 @@ section { padding: clamp(5rem, 12vh, 9rem) 0; }
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   color: var(--fg-dim);
-  background: rgba(250, 248, 245, 0.75);
+  background: rgba(245, 244, 238, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--line);
@@ -749,7 +749,7 @@ section { padding: clamp(5rem, 12vh, 9rem) 0; }
   display: none;
   flex-direction: column;
   gap: 0.6rem;
-  background: rgba(250, 248, 245, 0.92);
+  background: rgba(245, 244, 238, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--line);
@@ -942,13 +942,13 @@ body:has(.project-page) .lattice-mask {
 .project-body code {
   font-family: var(--font-mono);
   font-size: 0.88em;
-  background: rgba(28, 24, 20, 0.06);
+  background: rgba(40, 36, 28, 0.06);
   padding: 0.15em 0.4em;
   border-radius: 4px;
   color: var(--accent);
 }
 .project-body pre {
-  background: rgba(28, 24, 20, 0.04);
+  background: rgba(40, 36, 28, 0.04);
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1.2rem;
