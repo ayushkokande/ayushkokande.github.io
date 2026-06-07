@@ -5,11 +5,6 @@ title: ""
 
 <!-- PROFILE -->
 <section class="profile">
-  <div class="profile-photo" role="img" aria-label="{{ site.author }}"
-       style="background-image: url('{{ '/assets/img/profile.jpg' | relative_url }}')">
-    <span class="profile-photo-fallback">AK</span>
-  </div>
-
   <div class="profile-body">
     <h1 class="profile-name">{{ site.author }}</h1>
     <p class="profile-affil">MS CS @ NYU Courant · AI Concentration</p>
@@ -35,6 +30,11 @@ title: ""
     <p class="profile-links">
       {% if site.google_scholar and site.google_scholar != "" %}<a href="{{ site.google_scholar }}">Google Scholar</a> · {% endif %}<a href="https://github.com/{{ site.github_username }}">GitHub</a> · <a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>{% if site.twitter_username and site.twitter_username != "" %} · <a href="https://twitter.com/{{ site.twitter_username }}">X</a>{% endif %} · <a href="mailto:{{ site.email }}">Email</a>
     </p>
+  </div>
+
+  <div class="profile-photo" role="img" aria-label="{{ site.author }}"
+       style="background-image: url('{{ '/assets/img/profile.jpg' | relative_url }}')">
+    <span class="profile-photo-fallback">AK</span>
   </div>
 </section>
 
