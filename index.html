@@ -3,183 +3,127 @@ layout: default
 title: ""
 ---
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-meta">MS CS · NYU COURANT · AI CONCENTRATION</div>
+<!-- PROFILE -->
+<section class="profile">
+  <div class="profile-photo" role="img" aria-label="{{ site.author }}"
+       style="background-image: url('{{ '/assets/img/profile.jpg' | relative_url }}')">
+    <span class="profile-photo-fallback">AK</span>
+  </div>
 
-    <h1 class="hero-title">
-      <span class="word" style="animation-delay: 200ms">Systems</span>
-      <span class="word" style="animation-delay: 280ms">engineer</span><br>
-      <span class="word" style="animation-delay: 360ms">learning</span>
-      <span class="word" style="animation-delay: 440ms">how</span>
-      <span class="word" style="animation-delay: 520ms">language</span>
-      <span class="word" style="animation-delay: 600ms">models</span><br>
-      <span class="word" style="animation-delay: 700ms"><em>actually&nbsp;think.</em></span>
-    </h1>
+  <div class="profile-body">
+    <h1 class="profile-name">{{ site.author }}</h1>
+    <p class="profile-affil">MS CS @ NYU Courant · AI Concentration</p>
 
-    <p class="hero-subtitle">
-      I'm <strong>{{ site.author }}</strong> — two years of backend engineering (44k+ peak IOPS,
-      600GB Postgres → ScyllaDB migrations) now pointed at <strong>mechanistic interpretability</strong>,
-      <strong>LLM internals</strong>, and the GPU kernels that make them tractable.
+    <p>
+      I'm a Master's student at the <a href="https://cs.nyu.edu/">Courant Institute</a> (AI
+      concentration), working on the internals of language models — how circuits form, where
+      reasoning breaks, and what <strong>mechanistic interpretability</strong> can tell us about
+      alignment.
+    </p>
+    <p>
+      Before NYU I spent two years building production backend systems — a non-blocking service at
+      <strong>Navi</strong> that handled 44k+ peak IOPS during 10× traffic growth, and Temporal
+      workflows at <strong>FinBox</strong> orchestrating 200K+ monthly loan applications. That pulls
+      my ML work toward the systems side: Triton kernels, memory hierarchies, and training
+      infrastructure as a first-class research artifact.
+    </p>
+    <p>
+      I'm looking for <strong>summer 2026 research opportunities</strong> in interpretability,
+      safety, or ML systems. If that's a fit — or you just want to chat — please email me.
     </p>
 
-    <div class="hero-links">
-      <a href="#work" class="magnetic" data-magnetic>selected work <span class="arrow">↗</span></a>
-      <a href="https://github.com/{{ site.github_username }}" class="magnetic" data-magnetic>github <span class="arrow">↗</span></a>
-      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="magnetic" data-magnetic>linkedin <span class="arrow">↗</span></a>
-      <a href="mailto:{{ site.email }}" class="magnetic" data-magnetic>email <span class="arrow">↗</span></a>
-    </div>
+    <p class="profile-links">
+      {% if site.google_scholar and site.google_scholar != "" %}<a href="{{ site.google_scholar }}">Google Scholar</a> · {% endif %}<a href="https://github.com/{{ site.github_username }}">GitHub</a> · <a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>{% if site.twitter_username and site.twitter_username != "" %} · <a href="https://twitter.com/{{ site.twitter_username }}">X</a>{% endif %} · <a href="mailto:{{ site.email }}">Email</a>
+    </p>
   </div>
-
-  <div class="scroll-cue">scroll</div>
 </section>
 
-<!-- WORK -->
-<section id="work" class="reveal">
-  <div class="container">
-    <div class="section-label">01 / Selected Work</div>
-    <h2 class="section-heading">
-      Projects on interpretability, <em>architecture,</em> and ML systems.
-    </h2>
-
-    <div class="projects-grid">
-      {% assign sorted_projects = site.projects | sort: 'order' %}
-      {% for project in sorted_projects %}
-        <a href="{{ project.url | relative_url }}" class="project-card tilt" data-magnetic>
-          <span class="arrow-out">↗</span>
-          <div class="project-index">{{ forloop.index | prepend: '00' | slice: -2, 2 }} / {{ project.date | date: '%Y' }}</div>
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-desc">{{ project.tagline }}</p>
-          <div class="project-tags">
-            {% for tag in project.tags %}
-              <span class="project-tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-        </a>
-      {% endfor %}
+<!-- PROJECTS -->
+<section id="projects" class="list-section">
+  <h2>Projects</h2>
+  {% assign sorted_projects = site.projects | sort: 'order' %}
+  {% for project in sorted_projects %}
+    <div class="entry">
+      <div class="entry-head">
+        <a class="entry-title" href="{{ project.url | relative_url }}">{{ project.title }}</a>
+        <span class="entry-links">
+          {% if project.github and project.github != "" %}<a href="{{ project.github }}">[code]</a>{% endif %}
+          {% if project.paper and project.paper != "" %}<a href="{{ project.paper }}">[paper]</a>{% endif %}
+          {% if project.demo and project.demo != "" %}<a href="{{ project.demo }}">[demo]</a>{% endif %}
+        </span>
+      </div>
+      <p class="entry-desc">{{ project.tagline }}</p>
+      <p class="entry-meta">{{ project.tags | join: " · " }}{% if project.date %} · {{ project.date | date: "%Y" }}{% endif %}</p>
     </div>
-  </div>
+  {% endfor %}
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="reveal">
-  <div class="container">
-    <div class="section-label">02 / Experience</div>
-    <h2 class="section-heading">
-      Backend systems at <em>scale,</em> before the research pivot.
-    </h2>
+<section id="experience" class="list-section">
+  <h2>Experience</h2>
 
-    <div class="experience-list">
-      <div class="experience-item">
-        <div>
-          <div class="experience-period">Mar 2025 — Jul 2025</div>
-          <div class="experience-stack">Go · Temporal · PostgreSQL</div>
-        </div>
-        <div>
-          <div class="experience-role">Software Development Engineer</div>
-          <div class="experience-org">FinBox <span class="loc">· Bengaluru</span></div>
-          <ul class="experience-bullets">
-            <li>Built Axis Bank's digital loan orchestration on Temporal — <strong>200K+ monthly applications</strong>, retry policies that cut manual intervention by 40%.</li>
-            <li>Tuned Go concurrency and database locking across services for Muthoot Finance and Tata Digital.</li>
-            <li>Onboarded 3+ engineers via service walkthroughs and pair programming.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div>
-          <div class="experience-period">Jul 2023 — Sep 2024</div>
-          <div class="experience-stack">Kotlin · Spring WebFlux · Kafka · ScyllaDB</div>
-        </div>
-        <div>
-          <div class="experience-role">Software Development Engineer</div>
-          <div class="experience-org">Navi Technologies <span class="loc">· Bengaluru</span></div>
-          <ul class="experience-bullets">
-            <li>Architected a non-blocking Customer Device Service that scaled to <strong>44k+ peak IOPS</strong> on 10× traffic growth.</li>
-            <li>Migrated <strong>600GB+ from PostgreSQL to ScyllaDB</strong> via S3 bulk loading — 60% cost reduction.</li>
-            <li>Redesigned relational schemas into NoSQL single-table designs with dual-write consistency for user mappings.</li>
-            <li>Cut VKYC PAN-match latency from 3–4s to 2s using Levenshtein thresholds.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div>
-          <div class="experience-period">May 2022 — Jul 2022</div>
-          <div class="experience-stack">C++ · GoogleTest</div>
-        </div>
-        <div>
-          <div class="experience-role">SDE Intern</div>
-          <div class="experience-org">Samsung Research <span class="loc">· Bengaluru</span></div>
-          <ul class="experience-bullets">
-            <li>Raised ISM module unit-test coverage from 57% to 80% using targeted GoogleTest strategies.</li>
-          </ul>
-        </div>
-      </div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Software Development Engineer · FinBox</span>
+      <span class="entry-when">Mar 2025 — Jul 2025</span>
     </div>
+    <p class="entry-desc">
+      Built Axis Bank's digital loan orchestration on Temporal — 200K+ monthly applications, with
+      retry policies that cut manual intervention by 40%. Tuned Go concurrency and DB locking for
+      Muthoot Finance and Tata Digital.
+    </p>
+    <p class="entry-meta">Go · Temporal · PostgreSQL</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Software Development Engineer · Navi Technologies</span>
+      <span class="entry-when">Jul 2023 — Sep 2024</span>
+    </div>
+    <p class="entry-desc">
+      Architected a non-blocking Customer Device Service that scaled to 44k+ peak IOPS on 10×
+      traffic growth, and migrated 600GB+ from PostgreSQL to ScyllaDB for a 60% cost reduction.
+    </p>
+    <p class="entry-meta">Kotlin · Spring WebFlux · Kafka · ScyllaDB</p>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">SDE Intern · Samsung Research</span>
+      <span class="entry-when">May 2022 — Jul 2022</span>
+    </div>
+    <p class="entry-desc">
+      Raised ISM module unit-test coverage from 57% to 80% using targeted GoogleTest strategies.
+    </p>
+    <p class="entry-meta">C++ · GoogleTest</p>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="reveal">
-  <div class="container">
-    <div class="section-label">03 / About</div>
-    <h2 class="section-heading">
-      Background &amp; <em>focus.</em>
-    </h2>
-
-    <div class="about-grid">
-      <div class="about-meta">
-        Currently
-        <b>MS CS @ NYU Courant<br>(AI Concentration)</b>
-        Previously
-        <b>SDE @ FinBox, Navi<br>B.Tech @ NSUT Delhi</b>
-        Interested in
-        <b>mech interp, GPU kernels,<br>LLM safety</b>
-        Based in
-        <b>New York, NY</b>
-      </div>
-
-      <div class="about-prose">
-        <p>
-          I'm a Master's student at the <strong>Courant Institute</strong> (AI concentration), working
-          on the internals of language models — how circuits form, where reasoning breaks, and what
-          interpretability can tell us about alignment.
-        </p>
-        <p>
-          Before NYU I spent two years building production backend systems: a non-blocking Kotlin
-          service at <strong>Navi</strong> that handled 44k+ IOPS during 10× traffic growth, and Temporal
-          workflows at <strong>FinBox</strong> orchestrating 200K+ monthly bank loan applications. That
-          background pulls my ML work toward the <strong>systems side</strong> — writing Triton kernels,
-          thinking about memory hierarchies, and treating training infrastructure as a first-class
-          research artifact rather than a black box.
-        </p>
-        <p>
-          Current projects sit at the intersection of <strong>mechanistic interpretability</strong> and
-          <strong>high-performance ML</strong>. Looking for <strong>summer 2026 research opportunities</strong>
-          in interp, safety, or ML systems — get in touch.
-        </p>
-      </div>
+<!-- PUBLICATIONS -->
+<section id="publications" class="list-section">
+  <h2>Publications</h2>
+  <p class="muted">
+    Manuscripts in preparation. In the meantime, the <a href="#projects">projects</a> above include
+    writeups and code.
+  </p>
+  <!-- Add entries like:
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Paper Title</span>
+      <span class="entry-links"><a href="#">[pdf]</a> <a href="#">[code]</a></span>
     </div>
+    <p class="entry-desc">Authors. <em>Venue, Year.</em></p>
   </div>
+  -->
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="contact-heading">
-      Let's talk about <em>how models think.</em>
-    </h2>
-
-    <a href="mailto:{{ site.email }}" class="contact-email" data-magnetic>
-      <span>✦</span> {{ site.email }}
-    </a>
-
-    <div class="contact-socials">
-      <a href="https://github.com/{{ site.github_username }}" data-magnetic>github ↗</a>
-      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" data-magnetic>linkedin ↗</a>
-      {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" data-magnetic>twitter ↗</a>{% endif %}
-    </div>
-  </div>
+<section id="contact" class="list-section">
+  <h2>Contact</h2>
+  <p>
+    Reach me at <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% if site.email_academic and site.email_academic != "" %}
+    (or <a href="mailto:{{ site.email_academic }}">{{ site.email_academic }}</a>){% endif %}.
+    Also on <a href="https://github.com/{{ site.github_username }}">GitHub</a> and
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>.
+  </p>
 </section>

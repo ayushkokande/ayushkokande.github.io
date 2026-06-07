@@ -9,64 +9,35 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,30..100,0..1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23c15f3c'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%230e7c74'/%3E%3C/svg%3E">
 
   {% seo %}
 </head>
 <body>
 
-<canvas id="lattice"></canvas>
-<div class="lattice-mask"></div>
-<div class="cursor" id="cursor"></div>
-
 <header class="site-header">
-  <div class="container">
-    <nav class="nav">
-      <a href="{{ '/' | relative_url }}" class="nav-mark" data-magnetic>
-        <span class="nav-dot"></span>
-        <span>{{ site.author | downcase | replace: ' ', '.' }}</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="{{ '/#work' | relative_url }}">work</a></li>
-        <li><a href="{{ '/#experience' | relative_url }}">experience</a></li>
-        <li><a href="{{ '/#about' | relative_url }}">about</a></li>
-        <li><a href="{{ '/#contact' | relative_url }}">contact</a></li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="wrap nav">
+    <a href="{{ '/' | relative_url }}" class="nav-home">{{ site.author }}</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/#projects' | relative_url }}">projects</a></li>
+      <li><a href="{{ '/#experience' | relative_url }}">experience</a></li>
+      <li><a href="{{ '/#publications' | relative_url }}">publications</a></li>
+      <li><a href="{{ '/#contact' | relative_url }}">contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
+<main class="wrap">
   {{ content }}
 </main>
 
 <footer class="site-footer">
-  <div class="container">
-    <span>© {{ site.time | date: '%Y' }} · {{ site.author }}</span>
-    <span>built from scratch · runs without a framework</span>
+  <div class="wrap">
+    © {{ site.time | date: '%Y' }} {{ site.author }} · built with Jekyll, hosted on GitHub Pages
   </div>
 </footer>
-
-<div class="time-control" id="timeControl" data-magnetic>
-  <button class="time-badge" id="timeBadge" type="button" aria-label="Toggle time-of-day scrubber">
-    <span class="dot" aria-hidden="true"></span>
-    <span class="time-now" id="timeNow">--:--</span>
-    <span class="sep">·</span>
-    <span class="phase" id="timePhase">loading</span>
-    <span class="mode" id="timeMode"></span>
-  </button>
-  <div class="time-scrubber" id="timeScrubber" role="group" aria-label="Time of day scrubber">
-    <input type="range" id="timeSlider" min="0" max="1439" step="1" value="800" aria-label="Hour of day" />
-    <div class="time-scrubber-hint">
-      <span>drag to preview the lattice across 24h</span>
-      <button type="button" id="timeReset">live</button>
-    </div>
-  </div>
-</div>
-
-<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
 </body>
 </html>

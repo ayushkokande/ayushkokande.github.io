@@ -1,4 +1,5 @@
 ---
+layout: project
 title: "Mechanistic Analysis of Context-Length Jailbreaks"
 tagline: "Tracing the circuit-level failure mode that lets long contexts bypass Phi-3's safety training — and reversing it with activation steering."
 date: 2026-04-01

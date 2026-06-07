@@ -1,4 +1,5 @@
 ---
+layout: project
 title: "FlashAttention-2 in Triton"
 tagline: "Custom Triton GPU kernel achieving 18× forward-pass speedup over naive PyTorch and 2× training throughput at 2.7B scale, with profile-driven optimization on A100."
 date: 2026-03-01

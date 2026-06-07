@@ -1,4 +1,5 @@
 ---
+layout: project
 title: "Transformer LM from Scratch"
 tagline: "A 17M-parameter decoder-only transformer built from first principles — custom BPE tokenizer, AdamW from scratch, and systematic RoPE vs. NoPE / SwiGLU ablations on TinyStories."
 date: 2026-03-01
