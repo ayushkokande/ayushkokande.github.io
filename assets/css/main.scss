@@ -87,21 +87,17 @@ main { padding: 2.6rem 0 1rem; }
 /* ---- Profile -------------------------------------------------------- */
 .profile {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 300px;
   gap: 2.2rem;
   align-items: start;
   margin-bottom: 3.2rem;
 }
 .profile-photo {
-  width: 320px;
-  height: 240px;
-  border-radius: 5px;
+  width: 300px;
+  height: auto;
+  border-radius: 6px;
   border: 1px solid var(--line);
-  background-color: var(--code-bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  display: block;
 }
 .profile-body p { margin-bottom: 1rem; }
 .profile-name {
@@ -273,6 +269,6 @@ a.entry-title:hover { color: var(--link); }
     gap: 1.3rem;
     justify-items: start;
   }
-  .profile-photo { width: 100%; max-width: 320px; height: 210px; order: -1; }
+  .profile-photo { width: 100%; max-width: 300px; height: auto; order: -1; }
   .entry-when { margin-left: 0; width: 100%; }
 }
