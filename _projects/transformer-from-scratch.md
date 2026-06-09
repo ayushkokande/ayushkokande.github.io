@@ -6,7 +6,7 @@ date: 2026-03-01
 status: "completed"
 order: 3
 tags: ["transformers", "pytorch", "from-scratch"]
-github: "https://github.com/ayushkokande/transformer-from-scratch"
+github: "https://github.com/ayushkokande/Transformer-Language-Model"
 paper: ""
 demo: ""
 ---

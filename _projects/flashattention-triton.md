@@ -6,7 +6,7 @@ date: 2026-03-01
 status: "completed"
 order: 2
 tags: ["triton", "gpu", "systems"]
-github: "https://github.com/ayushkokande/flashattention-triton"
+github: "https://github.com/ayushkokande/Systems-And-Parallelism"
 paper: ""
 demo: ""
 ---

@@ -6,7 +6,7 @@ date: 2026-04-01
 status: "completed"
 order: 1
 tags: ["interpretability", "safety", "transformerlens"]
-github: "https://github.com/ayushkokande/mech-jailbreaks"
+github: "https://github.com/ayushkokande/Reasoning-Reinforcement-Learning"
 paper: ""
 demo: ""
 ---
