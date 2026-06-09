@@ -1,14 +1,14 @@
 ---
 layout: project
-title: "Long-Context Jailbreak Interpretability"
+title: "attention_dilution"
 tagline: "Causal refusal-direction analysis for Qwen3-14B across long-context jailbreak settings, with preregistered context-length sweeps and validity checks."
 date: 2026-05-01
 status: "completed"
 order: 2
 tags: ["interpretability", "safety", "transformers"]
-github: ""
-paper: ""
-demo: "#"
+github: "https://github.com/ayushkokande/attention_dilution"
+paper: "https://github.com/ayushkokande/attention_dilution/blob/main/submission_408271332.pdf"
+demo: ""
 ---
 
 ## Overview

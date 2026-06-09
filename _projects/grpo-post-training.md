@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "Reasoning Model Post-Training: SFT + GRPO"
+title: "Reasoning-Reinforcement-Learning"
 tagline: "End-to-end reasoning-model post-training with response-masked SFT, vLLM rollouts, GRPO/PPO-style updates, and reproducible SLURM jobs."
 date: 2026-04-01
 status: "completed"

@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "FlashAttention-2 & Systems Optimization"
+title: "Systems-And-Parallelism"
 tagline: "Fused Triton FlashAttention-2 kernel with online softmax, O(N) attention memory, 18x forward speedup, and 2x throughput gains for 2.7B-scale training."
 date: 2026-03-01
 status: "completed"

@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "End-to-End Transformer LM Pretraining"
+title: "Transformer-Language-Model"
 tagline: "A 17M-parameter decoder-only Transformer pretrained from scratch with a custom byte-level BPE tokenizer, hand-built AdamW, and matched architecture ablations."
 date: 2026-02-01
 status: "completed"
