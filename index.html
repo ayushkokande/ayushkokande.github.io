@@ -24,6 +24,7 @@ title: ""
     </p>
 
     <p class="profile-links">
+      <a href="{{ '/Ayush_Kokande_resume_ML.pdf' | relative_url }}">Resume</a> ·
       {% if site.google_scholar and site.google_scholar != "" %}<a href="{{ site.google_scholar }}">Google Scholar</a> · {% endif %}<a href="https://github.com/{{ site.github_username }}">GitHub</a> · <a href="https://linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>{% if site.twitter_username and site.twitter_username != "" %} · <a href="https://twitter.com/{{ site.twitter_username }}">X</a>{% endif %} · <a href="mailto:{{ site.email }}">Email</a>
     </p>
   </div>
@@ -40,9 +41,9 @@ title: ""
       <div class="entry-head">
         <a class="entry-title" href="{{ project.url | relative_url }}">{{ project.title }}</a>
         <span class="entry-links">
+          {% if project.demo and project.demo != "" %}<a href="{{ project.demo }}">[open]</a>{% endif %}
           {% if project.github and project.github != "" %}<a href="{{ project.github }}">[code]</a>{% endif %}
           {% if project.paper and project.paper != "" %}<a href="{{ project.paper }}">[paper]</a>{% endif %}
-          {% if project.demo and project.demo != "" %}<a href="{{ project.demo }}">[demo]</a>{% endif %}
         </span>
       </div>
       <p class="entry-desc">{{ project.tagline }}</p>
@@ -60,12 +61,13 @@ title: ""
       <span class="entry-title">Software Development Engineer · FinBox</span>
       <span class="entry-when">Mar 2025 — Jul 2025</span>
     </div>
-    <p class="entry-desc">
-      Built Axis Bank's digital loan orchestration on Temporal — 200K+ monthly applications, with
-      retry policies that cut manual intervention by 40%. Tuned Go concurrency and DB locking for
-      Muthoot Finance and Tata Digital.
-    </p>
-    <p class="entry-meta">Go · Temporal · PostgreSQL</p>
+    <ul class="entry-desc-list">
+      <li>Integrated a serverless workflow editor that helped developers across multiple domains use the underlying framework and improve productivity by 10x.</li>
+      <li>Orchestrated Axis Bank's digital loan journey with Temporal workflows, enabling 200K+ monthly applications and retry policies that reduced manual intervention by 40%.</li>
+      <li>Optimized high-throughput backend services for Muthoot Finance and Tata Digital by refining Go concurrency patterns and database locking strategies.</li>
+      <li>Mentored and onboarded 3+ developers through service documentation, pair programming, and structured walkthroughs.</li>
+    </ul>
+    <p class="entry-meta">Go · Temporal · PostgreSQL · Serverless</p>
   </div>
 
   <div class="entry">
@@ -73,11 +75,14 @@ title: ""
       <span class="entry-title">Software Development Engineer · Navi Technologies</span>
       <span class="entry-when">Jul 2023 — Sep 2024</span>
     </div>
-    <p class="entry-desc">
-      Architected a non-blocking Customer Device Service that scaled to 44k+ peak IOPS on 10×
-      traffic growth, and migrated 600GB+ from PostgreSQL to ScyllaDB for a 60% cost reduction.
-    </p>
-    <p class="entry-meta">Kotlin · Spring WebFlux · Kafka · ScyllaDB</p>
+    <ul class="entry-desc-list">
+      <li>Architected a high-availability Customer Device Service using Kotlin, Spring WebFlux, and Reactor Kafka, supporting 10x traffic growth to 44k+ peak IOPS.</li>
+      <li>Engineered a 600GB+ PostgreSQL to ScyllaDB migration using S3 bulk loading to bypass application-layer bottlenecks and reduce migration costs by 60%.</li>
+      <li>Redesigned relational schemas into optimized NoSQL single-table designs with dual writes for strong user-mapping consistency and eventual analytical consistency.</li>
+      <li>Implemented fraud-AML retry workflows and PAN Match data on the VKYC Portal using Levenshtein thresholds, reducing AHT from 3-4s to 2s.</li>
+      <li>Enabled CKYC upload only for OKYC-approved customers, reducing escalations to zero and lowering OCR costs by deprecating the HyperVerge API.</li>
+    </ul>
+    <p class="entry-meta">Java · Kotlin · Spring WebFlux · Reactor Kafka · ScyllaDB · PostgreSQL</p>
   </div>
 
   <div class="entry">
@@ -85,9 +90,10 @@ title: ""
       <span class="entry-title">SDE Intern · Samsung Research</span>
       <span class="entry-when">May 2022 — Jul 2022</span>
     </div>
-    <p class="entry-desc">
-      Raised ISM module unit-test coverage from 57% to 80% using targeted GoogleTest strategies.
-    </p>
+    <ul class="entry-desc-list">
+      <li>Improved ISM module unit-test coverage from 57% to 80% using GoogleTest and targeted testing strategies.</li>
+      <li>Collaborated with senior engineers to deliver module enhancements on schedule and maintain code quality.</li>
+    </ul>
     <p class="entry-meta">C++ · GoogleTest</p>
   </div>
 </section>

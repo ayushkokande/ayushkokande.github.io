@@ -162,6 +162,12 @@ a.entry-title:hover { color: var(--link); }
   font-size: 0.96rem;
   margin: 0.25rem 0 0.3rem;
 }
+.entry-desc-list {
+  color: var(--fg-dim);
+  font-size: 0.96rem;
+  margin: 0.35rem 0 0.45rem 1.15rem;
+}
+.entry-desc-list li { margin-top: 0.25rem; }
 .entry-meta {
   font-family: var(--mono);
   font-size: 0.8rem;

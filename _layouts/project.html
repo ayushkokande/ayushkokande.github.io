@@ -16,9 +16,9 @@ layout: default
   {% if page.tagline %}<p class="project-page-tagline">{{ page.tagline }}</p>{% endif %}
 
   <p class="project-page-links">
-    {% if page.github and page.github != "" %}<a href="{{ page.github }}">view on GitHub →</a>{% endif %}
+    {% if page.demo and page.demo != "" %}<a href="{{ page.demo }}">open ↗</a>{% endif %}
+    {% if page.github and page.github != "" %}<a href="{{ page.github }}">code →</a>{% endif %}
     {% if page.paper and page.paper != "" %}<a href="{{ page.paper }}">read paper ↗</a>{% endif %}
-    {% if page.demo and page.demo != "" %}<a href="{{ page.demo }}">live demo ↗</a>{% endif %}
   </p>
 
   <div class="project-body">
