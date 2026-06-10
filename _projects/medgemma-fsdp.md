@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "medgemma-fsdp"
+title: "Profiler-Driven FSDP Optimization"
 tagline: "Full-parameter FSDP fine-tuning of MedGemma 4B on 2×H100: profiler-driven optimization (−31% step time, +46% throughput) and fault-tolerant checkpointing with a kill -9 recovery demo."
 date: 2026-05-28
 status: "completed"
