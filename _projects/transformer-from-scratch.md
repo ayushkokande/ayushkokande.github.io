@@ -13,9 +13,9 @@ demo: "#"
 
 ## Overview
 
-This project implements a complete small-scale language-model pretraining stack from tokenizer to optimizer. The model is a **28.9M-parameter decoder-only Transformer** (RoPE, SwiGLU, RMSNorm, byte-level BPE — every component from scratch, no Hugging Face) trained on **1.6B tokens** of TinyStories with direct PyTorch implementations of the architecture, training loop, and data pipeline. It reaches **validation perplexity 3.37 (loss 1.22)**, improving from perplexity 4.08 at the 20k-iteration mark across a 3-epoch run, and is deployed as a live, CPU-only Hugging Face Spaces demo.
+This project implements a complete small-scale language-model pretraining stack from tokenizer to optimizer. The model is a **28.9M-parameter decoder-only Transformer** (RoPE, SwiGLU, RMSNorm, byte-level BPE; every component from scratch, no Hugging Face) trained on **1.6B tokens** of TinyStories with direct PyTorch implementations of the architecture, training loop, and data pipeline. It reaches **validation perplexity 3.37 (loss 1.22)**, improving from perplexity 4.08 at the 20k-iteration mark across a 3-epoch run, and is deployed as a live, CPU-only Hugging Face Spaces demo.
 
-The most surprising result came from profiling the tokenizer: the merge algorithm cost only **4 seconds of a 120-second run** — 105 seconds went to multiprocessing IPC shipping token counts between workers, meaning the "expensive" BPE merges were never the bottleneck at all.
+The most surprising result came from profiling the tokenizer: the merge algorithm cost only **4 seconds of a 120-second run**; 105 seconds went to multiprocessing IPC shipping token counts between workers, meaning the "expensive" BPE merges were never the bottleneck at all.
 
 ## Architecture
 
