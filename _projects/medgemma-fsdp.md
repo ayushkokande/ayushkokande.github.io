@@ -11,9 +11,20 @@ paper: ""
 demo: "#"
 ---
 
-## Overview
+## Distributed Training Efficiency & Recovery
 
-This project measures and optimizes full-parameter distributed fine-tuning of **MedGemma 4B** (text-only training) on **2×H100 SXM with NVLink** using PyTorch FSDP. The goal was training efficiency and failure recovery, not convergence: establish a rigorous baseline, find the bottleneck with a profiler, fix it one variable at a time, and prove the run survives a hard kill.
+Profiled and optimized full-parameter fine-tuning of **MedGemma 4B** (4.3B params) across **2×H100s** with PyTorch FSDP, cutting step time **31% (327.9 → 225.9 ms)** and raising throughput **46% (12.4K → 18K tok/s)** while reducing peak memory below baseline — every comparison run against a 3-run baseline at 1.75% CV, one variable changed at a time. Profiling showed **37–43% of each step was inter-GPU communication**, traced to FSDP's `FULL_SHARD` all-gathering identical weights twice per step. Along the way I caught a profiler artifact reporting communication at **150% of step time**, and showed a recovery run's apparent **4.5% MFU** was wall-clock dilution from checkpoint I/O consuming 74% of runtime — not slow training.
+
+The surprising result: after fixing the communication bottleneck (−7%), the bigger win came from `torch.compile` kernel fusion (−26% further) — and that fusion erased all the memory the communication fix had spent, pushing peak memory below baseline.
+
+## Highlights
+
+- **Measurement rigor** — 3-run baseline with per-phase timing (forward/backward/optimizer), 1.75% CV; rejected profiler runs showing comm >100% of step time as kernel-overlap artifacts.
+- **Root cause, not symptom** — traced 37–43% comm overhead to 26 redundant backward all-gathers per step re-fetching unchanged weights.
+- **Ablation 1 — `SHARD_GRAD_OP`:** −6.8% step time, all_gather −16%, at +5.8 GB memory cost.
+- **Ablation 2 — `torch.compile`:** −26% further; backward −38.7% vs optimizer −0.5%, landing exactly where elementwise-op density predicted.
+- **Fault recovery** — `kill -9` mid-run → resumed from sharded checkpoint, ≤20 steps lost, post-resume speed within 5% of baseline.
+- **Honest bottleneck accounting** — frequent checkpointing consumed 74% of wall time (13 × ~26 GB writes), documented as the real cost of tight checkpoint intervals.
 
 ## Baseline and Bottleneck
 

@@ -1,7 +1,7 @@
 ---
 layout: project
-title: "attention_dilution"
-tagline: "Causal refusal-direction analysis for Qwen3-14B across long-context jailbreak settings, with preregistered context-length sweeps and validity checks."
+title: "Long-Context Jailbreak Interpretability"
+tagline: "Causal refusal-direction analysis for Qwen3-14B tracing long-context jailbreaks to a two-head circuit (L20H10 → L36H31); jailbreak susceptibility is format-conditional, not length-conditional."
 date: 2026-05-01
 status: "completed"
 order: 2
@@ -13,28 +13,32 @@ demo: ""
 
 ## Overview
 
-This project studies whether long-context jailbreaks weaken a model's refusal behavior by diluting safety-relevant attention. I tested that hypothesis on **Qwen3-14B** with 40 layers, `d_model = 5120`, and 32K context, using activation-level interventions and preregistered context-length sweeps.
+Using Qwen3-14B on 520 AdvBench harmful prompts, we traced long-context jailbreaks to a specific two-head circuit (**L20H10 → L36H31**) via difference-of-means extraction, six-format dilution sweeps, and denoising path patching — all validated against four preregistered confound controls showing the refusal direction encodes harm intent (AUC_intent=1.000) rather than lexical register or topic.
+
+The headline finding is that jailbreak susceptibility is **format-conditional, not length-conditional**: five of six bloat formats preserve refusal at ≥87% even at N=4096, while the distractor (numbered-list) format collapses refusal from 97% to 0% at just ~31 tokens. The failure is **attentional, not representational** — the dominant Guardrail Head L36H31 loses 6× of its attention mass on harmful tokens while the refusal direction itself stays geometrically intact across the full sweep. Single-site activation steering fails because the distractor bloat flips the sign of d̂'s projection at L36 (from +512 to −58), pointing to the upstream lesion at L20H10 as the correct intervention target.
 
 ## Refusal Direction
 
-I extracted a causal refusal direction from 256 harmful AdvBench prompts and 256 harmless Alpaca prompts using difference-of-means over residual-stream activations. The safety read-off localized cleanly at layer 20.
+I extracted a causal refusal direction **d̂ at layer 36/40** from harmful AdvBench prompts and harmless Alpaca prompts using difference-of-means over residual-stream activations. Causal ablation drops the harmful-refusal rate **93.65% → 0% with zero harmless false positives**.
 
-Layer-wise directional ablation validated the direction causally: removing the refusal direction drove the harmful-refusal rate from **95% to 1%**.
+The direction tracks **harm intent, not surface form**: AUC_intent=1.000 versus AUC_vocab=0.597 (chance), with η²(intent)=0.963 against η²(topic)=0.002.
 
-## Context-Length Sweep
+## Format-Conditional Collapse
 
-I ran a preregistered two-arm scaling sweep over benign filler lengths:
+I ran a preregistered six-format dilution sweep at matched token budgets. The distractor (numbered-list) format breaks refusal at **~31 tokens**, while five other formats hold **≥87% at N=4096** — same model, same prompts, same token budget. Length alone does not weaken refusal; the bloat *format* does.
 
-`L in {0, 512, 2K, 8K, 16K, 32K}`
+## Guardrail Head
 
-The intact arm kept refusal flat at approximately 95% across all context lengths, while the directionally ablated control collapsed to approximately 1%. That falsified the dilution hypothesis at this scale and turned the result into a clean, bounded negative finding.
+The dominant Guardrail Head **L36H31** (DLA=+14.72, 2.15× the next head) loses **6× of its attention** on harmful tokens under the distractor format, yet the V_refusal projection stays flat — confirming an **attentional failure, not a representational one**.
 
-## Validity Battery
+## Steering & Circuit
 
-To address domain-shift critiques, I re-derived the refusal direction with a covariate-matched harmful/harmless set matched on verb class and word length, then compared per-layer cosine similarity to the original direction.
+Single-site activation steering fails for **N≥512 at all tested α**: under distractor bloat the d̂ projection sign inverts (**+512 → −58**), requiring α≳60 (4× the largest tested) to rescue. Denoising path patching localizes the cause upstream: the two-head circuit **L20H10 → L36H31** accounts for **2.54× the recovery** of the next-best head, marking L20H10 as the correct intervention target.
 
-I also ran a preregistered 2x2 intent-by-topic ANOVA with 50 prompts per cell and a decision rule based on partial eta-squared at layer 20. This ruled out vocabulary and topic dominance as confounds in the learned refusal direction.
+## Validity & Capability
+
+To address domain-shift critiques, I re-derived d̂ on a covariate-matched harmful/harmless set (matched on verb class and word length) and ran a preregistered 2×2 intent-by-topic ANOVA with a partial-eta-squared decision rule — ruling out vocabulary and topic dominance as confounds. The ablation is **capability-narrow**: MMLU stays within ±3pp with zero spurious benign refusals.
 
 ## Reproducibility
 
-The full pipeline runs as SLURM batch jobs on 2xA100 SXM4 40GB inside a Singularity container with a uv-managed Python environment and BF16 inference. Per-prompt projections, ANOVA outputs, figures, and paper-ready artifacts are emitted to versioned results directories.
+The full pipeline runs as SLURM batch jobs on 2×A100 SXM4 40GB inside a Singularity container with a uv-managed Python environment and BF16 inference. Per-prompt projections, ANOVA outputs, figures, and paper-ready artifacts are emitted to versioned results directories.
