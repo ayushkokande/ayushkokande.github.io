@@ -7,7 +7,7 @@ status: "completed"
 order: 2
 tags: ["interpretability", "safety", "transformers"]
 github: "https://github.com/ayushkokande/attention_dilution"
-paper: "https://github.com/ayushkokande/attention_dilution/blob/main/submission_408271332.pdf"
+paper: "https://github.com/ayushkokande/attention_dilution/blob/HEAD/Attention_Dilution_Submission.pdf"
 demo: ""
 ---
 
