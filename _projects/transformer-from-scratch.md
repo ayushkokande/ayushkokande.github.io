@@ -8,7 +8,7 @@ order: 3
 tags: ["pretraining", "transformers", "pytorch"]
 github: "https://github.com/ayushkokande/Transformer-Language-Model"
 paper: ""
-demo: "#"
+demo: "https://huggingface.co/spaces/ayushkokande/tinystories-lm"
 ---
 
 ## Overview
