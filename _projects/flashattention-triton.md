@@ -8,7 +8,7 @@ order: 4
 tags: ["systems", "triton", "gpu"]
 github: "https://github.com/ayushkokande/Systems-And-Parallelism"
 paper: ""
-demo: "#"
+demo: "https://ayushkokande-systems-and-parallelism.hf.space"
 ---
 
 ## Transformer Systems & Performance Engineering
