@@ -8,7 +8,7 @@ order: 1
 tags: ["post-training", "GRPO", "vLLM", "SLURM"]
 github: "https://github.com/ayushkokande/Reasoning-Reinforcement-Learning"
 paper: ""
-demo: "#"
+demo: "https://huggingface.co/spaces/ayushkokande/math-reasoning-rl"
 ---
 
 ## Overview
