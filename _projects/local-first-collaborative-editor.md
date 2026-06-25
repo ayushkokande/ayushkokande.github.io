@@ -8,7 +8,7 @@ order: 6
 tags: ["distributed-systems", "CRDT", "typescript"]
 github: "https://github.com/shivasb42/distributed-collaborative-editor"
 paper: ""
-demo: ""
+demo: "https://collab-editor-uwjg.onrender.com/"
 ---
 
 ## Overview
