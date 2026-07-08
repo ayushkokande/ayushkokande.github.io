@@ -6,6 +6,7 @@ date: 2026-05-01
 status: "completed"
 order: 6
 tags: ["distributed-systems", "CRDT", "typescript"]
+description: "A local-first collaborative text editor built on Yjs CRDTs: offline and concurrent edits merge with strong eventual consistency, validated under network partitions and out-of-order delivery."
 github: "https://github.com/shivasb42/distributed-collaborative-editor"
 paper: ""
 demo: "https://collab-editor-uwjg.onrender.com/"

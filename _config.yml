@@ -16,6 +16,24 @@ google_scholar: ""
 markdown: kramdown
 highlighter: rouge
 permalink: /:title/
+lang: en
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# SEO / social metadata (consumed by jekyll-seo-tag)
+image: /assets/img/profile.jpg
+twitter:
+  username: "AKokande"
+  card: summary
+social:
+  name: "Ayush Kokande"
+  links:
+    - "https://github.com/ayushkokande"
+    - "https://www.linkedin.com/in/ayush-kokande-2000"
+    - "https://twitter.com/AKokande"
 
 collections:
   projects:

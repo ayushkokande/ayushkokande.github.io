@@ -6,6 +6,7 @@ date: 2026-03-01
 status: "completed"
 order: 4
 tags: ["systems", "triton", "gpu"]
+description: "Fused FlashAttention-2 kernel written in Triton with tiled SRAM blocking and online softmax: 18x forward speedup on A100, O(N) attention memory, 65K+ sequence lengths, and 2x training throughput for a 2.7B model."
 github: "https://github.com/ayushkokande/Systems-And-Parallelism"
 paper: ""
 demo: "https://ayushkokande-systems-and-parallelism.hf.space"

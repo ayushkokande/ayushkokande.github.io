@@ -6,6 +6,7 @@ date: 2026-02-01
 status: "completed"
 order: 3
 tags: ["pretraining", "transformers", "pytorch"]
+description: "A 17M-parameter decoder-only Transformer pretrained from scratch in PyTorch: custom byte-level BPE tokenizer, hand-implemented AdamW and RoPE/RMSNorm/SwiGLU blocks, and matched-parameter architecture ablations."
 github: "https://github.com/ayushkokande/Transformer-Language-Model"
 paper: ""
 demo: "https://huggingface.co/spaces/ayushkokande/tinystories-lm"

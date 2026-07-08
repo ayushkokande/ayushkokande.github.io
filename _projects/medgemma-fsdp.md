@@ -6,6 +6,7 @@ date: 2026-05-28
 status: "completed"
 order: 5
 tags: ["distributed-training", "FSDP", "systems", "performance"]
+description: "Profiler-driven optimization of full-parameter MedGemma 4B fine-tuning on 2xH100 with PyTorch FSDP: 31% faster steps and 46% higher throughput via SHARD_GRAD_OP and torch.compile, plus fault-tolerant checkpointing with a kill -9 recovery demo."
 github: "https://github.com/ayushkokande/medgemma-fsdp"
 paper: ""
 demo: ""

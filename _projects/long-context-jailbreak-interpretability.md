@@ -6,6 +6,7 @@ date: 2026-05-01
 status: "completed"
 order: 2
 tags: ["interpretability", "safety", "transformers"]
+description: "Mechanistic interpretability study of long-context jailbreaks in Qwen3-14B: causal refusal-direction extraction, directional ablation driving refusal from 95% to 1%, and a preregistered context-length sweep falsifying the attention-dilution hypothesis."
 github: "https://github.com/ayushkokande/attention_dilution"
 paper: "https://github.com/ayushkokande/attention_dilution/blob/HEAD/Attention_Dilution_Submission.pdf"
 demo: ""

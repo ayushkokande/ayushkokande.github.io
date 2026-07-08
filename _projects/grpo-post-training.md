@@ -6,6 +6,7 @@ date: 2026-04-01
 status: "completed"
 order: 1
 tags: ["post-training", "GRPO", "vLLM", "SLURM"]
+description: "End-to-end LLM post-training pipeline for Qwen2.5-Math-1.5B: response-masked SFT on reasoning traces, a from-scratch GRPO loop with vLLM rollouts and PPO-style clipping, and full ablations logged to wandb on SLURM."
 github: "https://github.com/ayushkokande/Reasoning-Reinforcement-Learning"
 paper: ""
 demo: "https://huggingface.co/spaces/ayushkokande/math-reasoning-rl"

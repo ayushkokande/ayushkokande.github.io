@@ -1,0 +1,33 @@
+---
+layout: null
+permalink: /llms.txt
+---
+# {{ site.author }}
+
+> MS Computer Science student (AI concentration) at NYU's Courant Institute, graduating Aug 2027. Works on LLM post-training (SFT, GRPO, RLHF), mechanistic interpretability, and high-performance ML systems (Triton GPU kernels, FSDP distributed training). Previously 2 years as a backend software engineer at Navi Technologies and FinBox. Seeking summer 2026 internships/research roles in ML systems, distributed training, model optimization, or AI safety.
+
+Contact: {{ site.email }} (or ak13124@nyu.edu) · GitHub: https://github.com/{{ site.github_username }} · LinkedIn: https://www.linkedin.com/in/{{ site.linkedin_username }}
+
+## Projects
+{% assign sorted_projects = site.projects | sort: 'order' %}{% for project in sorted_projects %}
+- [{{ project.title }}]({{ project.url | absolute_url }}): {{ project.tagline }}{% if project.github and project.github != "" %} Code: {{ project.github }}{% endif %}{% endfor %}
+
+## Experience
+
+- Software Development Engineer, FinBox (Mar 2025 – Jul 2025): Temporal-based loan orchestration for Axis Bank at 200K+ monthly applications; Go concurrency and database optimization for Muthoot Finance and Tata Digital.
+- Software Development Engineer, Navi Technologies (Jul 2023 – Sep 2024): non-blocking Customer Device Service scaled to 44k+ peak IOPS (Kotlin, Spring WebFlux, Reactor Kafka); 600GB+ PostgreSQL-to-ScyllaDB migration cutting costs 60%.
+- Research Intern, Samsung R&D Institute Bangalore (May 2022 – Jul 2022): raised ISM module unit-test coverage from 57% to 80% (C++, GoogleTest).
+
+## Education
+
+- M.S. Computer Science, AI concentration — Courant Institute of Mathematical Sciences, New York University (Aug 2025 – Aug 2027)
+- B.Tech. Computer Engineering — Netaji Subhas University of Technology, New Delhi (Aug 2019 – Jul 2023)
+
+## Skills
+
+Languages: Python, Go, Kotlin, Java, C/C++, SQL. ML & training: PyTorch, HuggingFace Transformers, vLLM, Triton, FSDP, Accelerate, CUDA, torch.compile, wandb, SLURM, Singularity. Post-training & interpretability: SFT, GRPO/PPO, RLHF, activation steering, directional ablation. Backend & data: Spring WebFlux, Reactor Kafka, Temporal, PostgreSQL, ScyllaDB.
+
+## Optional
+
+- [Resume PDF]({{ site.url }}/Ayush_Kokande_resume_ML.pdf)
+- [Sitemap]({{ site.url }}/sitemap.xml)

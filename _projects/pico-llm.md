@@ -6,6 +6,7 @@ date: 2025-12-01
 status: "completed"
 order: 7
 tags: ["transformers", "pytorch", "nlp"]
+description: "k-gram MLP, LSTM, and decoder-only Transformer language models built from scratch in PyTorch and compared head-to-head on TinyStories, with nucleus sampling and attention visualization."
 github: "https://github.com/ayushkokande/Pico-LLM"
 paper: ""
 demo: ""
