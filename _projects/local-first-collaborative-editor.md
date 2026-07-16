@@ -4,7 +4,7 @@ title: "Local-First Collaborative Editor"
 tagline: "A distributed, local-first collaborative text editor where every browser holds a full Yjs CRDT replica: concurrent and offline edits merge with strong eventual consistency, no central coordination, validated under partitions and out-of-order delivery."
 date: 2026-05-01
 status: "completed"
-order: 6
+order: 5
 tags: ["distributed-systems", "CRDT", "typescript"]
 description: "A local-first collaborative text editor built on Yjs CRDTs: offline and concurrent edits merge with strong eventual consistency, validated under network partitions and out-of-order delivery."
 github: "https://github.com/shivasb42/distributed-collaborative-editor"

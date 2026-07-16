@@ -4,7 +4,7 @@ title: "Pico-LLM"
 tagline: "Three language-model architectures (k-gram MLP, LSTM, decoder-only Transformer with RMSNorm) built and compared head-to-head on TinyStories, with from-scratch nucleus sampling and attention-weight visualization."
 date: 2025-12-01
 status: "completed"
-order: 7
+order: 6
 tags: ["transformers", "pytorch", "nlp"]
 description: "k-gram MLP, LSTM, and decoder-only Transformer language models built from scratch in PyTorch and compared head-to-head on TinyStories, with nucleus sampling and attention visualization."
 github: "https://github.com/ayushkokande/Pico-LLM"
